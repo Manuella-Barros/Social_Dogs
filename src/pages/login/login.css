@@ -1,0 +1,30 @@
+#main_login{
+    display: flex;
+    width: 95%;
+    margin: auto;
+}
+#main_login picture, #main_login article{
+    width: 50%;
+}
+#main_login picture img{
+    width: 100%;
+}
+#main_login article{
+    margin-left: 20px;
+}
+#main_login article h1{
+    margin-bottom: 20px;
+}
+#main_login article p{
+    margin-block: 4px;
+}
+.input{
+    padding: 3px;
+    margin-bottom: 15px;
+}
+section{
+    margin-block: 20px;
+}
+#main_login .erro_login{
+    color: red;
+}
