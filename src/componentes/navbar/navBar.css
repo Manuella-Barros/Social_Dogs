@@ -24,4 +24,6 @@ nav{
 nav img{
     width: 35px;
 }
-
+nav .img_login{
+    width: 25px;
+}

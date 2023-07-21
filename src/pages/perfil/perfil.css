@@ -1,0 +1,8 @@
+#main_perfil #header_perfil{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#main_perfil #header_perfil a{
+   margin-inline: 15px;
+}

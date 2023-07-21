@@ -9,7 +9,6 @@ img{
     max-height: 100%;
     object-fit: cover;
 }
-
 .botao{
     font-size: 15px;
     background-color: rgb(255, 251, 15);
@@ -30,13 +29,17 @@ a{
     color: black;
 }
 h1{
-    font-size: 60px;
+    font-size: 50px;
 }
 h2{
     font-size: 30px;
 }
 p{
     font-size: 15px;
+}
+main{
+    max-width: 900px;
+    margin: 0 auto;
 }
 
 /* ANIMAÇÃO FADE*/

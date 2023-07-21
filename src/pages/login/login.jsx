@@ -72,7 +72,7 @@ function Login(){
                         {erro.userpassword != '' && erro.userpassword != null ? <p className="erro_login">{erro.userpassword}</p> : <></>}
                     </div>
                     <div>
-                        <Link onClick={loginUser} to={'/'} className="botao">Entrar</Link>
+                        <button onClick={loginUser} to={'/'} className="botao">Entrar</button>
                         <p className="erro_login" ref={usuario_false}></p>
                     </div>
                 
