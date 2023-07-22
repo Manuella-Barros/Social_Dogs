@@ -1,16 +1,16 @@
 import './navBar.css'
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { TokenContext } from "../../context/TokenContext";
+import { GlobalContext } from "../../context/GlobalContext";
 
 function NavBar(){
-    const [token, setToken] = useContext(TokenContext);
+    const [isLogged, setIsLogged] = useContext (GlobalContext);
 
     return(
         <nav>
             <Link to={''}><img src="./imagens/icone.png"></img></Link>
             {
-                token == '' 
+                isLogged == false 
                 ? <Link to={'/login'}>Login/Criar</Link>
                 : <Link to={'/perfil'}>Perfil <img className="img_login" src="./imagens/perfil_usuario.png"></img></Link>
             }

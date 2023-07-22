@@ -12,14 +12,4 @@ function Postagens({posts}){
     )
 }
 
-/*
-function Postagens({i, post}){
-    console.log(post)
-    return(
-        <article className="container_postagens">
-            <CardPostagem key={i} img={post.src}/>
-        </article>        
-    )
-}
-*/
 export default Postagens;

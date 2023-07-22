@@ -1,12 +1,12 @@
 import React, { useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import './login.css'
 import getUserToken from "../../api/getUserToken";
 import { useContext } from "react";
-import { TokenContext } from "../../context/TokenContext";
+import { GlobalContext } from "../../context/GlobalContext";
 
 function Login(){
-    const [token, setToken] = useContext(TokenContext) // Variavel global    
+    const [isLogged, setIsLogged] = useContext(GlobalContext) // Variavel global    
     const [login, setLogin] = React.useState({
         username: '',
         userpassword: '',
@@ -15,7 +15,7 @@ function Login(){
     let usuario_false = useRef(); // Mensagem de erro se n existir o usuario
 
     // Verifica se o input é valido e seta na variável
-    function check({target}){
+    function validaInput({target}){
         const dado = target.getAttribute("data-nome") // pegando o valor do atributo data-nome
 
         if(target.value.length < 3){ // Input < 3 retorna msg de erro
@@ -37,8 +37,7 @@ function Login(){
                     if(res.token != undefined && localStorage.getItem('tokenUsuario') == null){
                         localStorage.setItem('tokenUsuario', res.token); // add o token no LocalStorage   
                         usuario_false.current.innerText = ''; 
-                        setToken(localStorage.getItem('tokenUsuario')); // add o token na var global
-                        usuario_false.current.innerText = '';          
+                        setIsLogged(true); // Usuario Logado  
                     } else if(localStorage.getItem('tokenUsuario') != null){
                         usuario_false.current.innerText = ''; 
                     } else{
@@ -64,15 +63,16 @@ function Login(){
                     {/* form para fazer o login */}
                     <div>
                         <p>Nome</p>
-                        <input onBlur={check} data-nome={'username'} type="text" placeholder="Insira seu nome" id="inputNome" className="input"/>
+                        <input onBlur={validaInput} data-nome={'username'} type="text" placeholder="Insira seu nome" id="inputNome" className="input"/>
                         {erro.username != '' ? <p className="erro_login">{erro.username}</p> : <></>}
                            
                         <p>Senha</p>
-                        <input onBlur={check} type="password" data-nome={'userpassword'} placeholder="Insira sua senha" id="inputSenha" className="input"/>   
+                        <input onBlur={validaInput} type="password" data-nome={'userpassword'} placeholder="Insira sua senha" id="inputSenha" className="input"/>   
                         {erro.userpassword != '' && erro.userpassword != null ? <p className="erro_login">{erro.userpassword}</p> : <></>}
                     </div>
                     <div>
-                        <button onClick={loginUser} to={'/'} className="botao">Entrar</button>
+                        <button onClick={loginUser} className="botao">Entrar</button>
+                        {isLogged && <Navigate to={'/perfil'}/>}
                         <p className="erro_login" ref={usuario_false}></p>
                     </div>
                 
@@ -82,7 +82,7 @@ function Login(){
                 <section>
                     <h2>Cadastro</h2>
                     <p>Ainda não é cadastrado?</p>
-                    <button className="botao">Cadastrar agora!</button>                         
+                    <Link to={'cadastro'} className="botao">Cadastrar agora!</Link>                         
                 </section>
             </article>
         </main>

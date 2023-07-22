@@ -1,8 +1,23 @@
-#main_perfil #header_perfil{
+#main_perfil{
     display: flex;
-    justify-content: space-between;
-    align-items: center;
 }
-#main_perfil #header_perfil a{
-   margin-inline: 15px;
+#main_perfil #nav_perfil{
+    padding-top: 3%;
+    width: 30%;
+}
+#main_perfil #nav_perfil a{
+    margin-inline: 15px;
+}
+#main_perfil #nav_perfil a img{
+    width: 10%;
+}
+#main_perfil .conteudo_perfil{
+    width: 70%;
+}
+#main_perfil .conteudo_perfil h1{
+    padding-bottom: 30px;
+}
+#main_perfil .conteudo_perfil input{
+    margin-block: 10px;
+    padding: 5px
 }
