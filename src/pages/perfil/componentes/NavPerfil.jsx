@@ -8,6 +8,7 @@ function NavPerfil() {
     function deslogar(){
         setIsLogged(false); 
         localStorage.removeItem('tokenUsuario')
+        localStorage.removeItem('username')
     }
     
     return (
