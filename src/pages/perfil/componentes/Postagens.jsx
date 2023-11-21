@@ -38,7 +38,7 @@ function Postagens() {
                 <input onChange={addInfo} type="file" name="" id="img" /><br />
                 
                 {/* Esse URL.createObjectURL cria um url temporario para essa foto */}
-                {infoImg.img && <img src={URL.createObjectURL(infoImg.img)}/>}
+                {infoImg.img && <img id='preview_foto' src={URL.createObjectURL(infoImg.img)}/>}
                 <button onClick={enviaImg} className='botao'>Enviar</button>
             </form>
         </section>
